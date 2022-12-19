@@ -77,7 +77,6 @@ public:
 				prod(i, j) = temp;
 			}
 		}
-		prod.print();
 		return prod;
 	}
 
