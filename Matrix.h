@@ -19,6 +19,11 @@ public:
 	{
 		mRows = other.Rows();
 		mCols = other.Cols();
+		mData.resize(mRows);
+
+		for (size_t i = 0; i < mData.size(); i++)
+			mData[i].resize(mCols);
+
 		for (size_t i = 0; i < mRows; i++)
 		{
 			for (size_t j = 0; j < mCols; j++)
@@ -56,7 +61,7 @@ public:
 	Matrix<T> operator*(const Matrix<T>& other)
 	{
 		Matrix prod(mRows, other.Cols(), 0);
-		assert(mCols = other.Rows());
+		assert(mCols == other.Rows());
 
 		size_t i, j, k;
 		T temp = 0;
@@ -72,6 +77,7 @@ public:
 				prod(i, j) = temp;
 			}
 		}
+		prod.print();
 		return prod;
 	}
 
